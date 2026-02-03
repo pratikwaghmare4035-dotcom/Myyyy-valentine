@@ -122,6 +122,8 @@ yesBtn.addEventListener("click", function() {
   fullscreenYes.classList.remove("hidden");
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
+  
+  // These functions are now defined below so they won't crash
   launchSparkles(30);
 
   setTimeout(() => {
@@ -160,7 +162,7 @@ function showMore() {
 }
 
 function launchSparkles(num) {
-  for (let i = 0; i < num; i++) {
+  for(let i=0; i<num; i++) {
     const s = document.createElement("div");
     s.innerHTML = "✨";
     s.className = "flying-glitter";
@@ -173,7 +175,7 @@ function launchSparkles(num) {
 }
 
 function launchFlyingHearts(num) {
-  for (let i = 0; i < num; i++) {
+  for(let i=0; i<num; i++) {
     const h = document.createElement("div");
     h.className = "flying-heart";
     h.style.left = Math.random() * 100 + "vw";
