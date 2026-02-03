@@ -123,17 +123,39 @@ yesBtn.addEventListener("click",function(){
   yesBtn.style.display="none";
   noBtn.style.display="none";
   launchSparkles(30);
+
+  setTimeout(()=>{
+    fullscreenYes.classList.add("hidden");
+    nextPage();
+  },2000);
+});
 });
 
-function nextPage(){document.getElementById("page1").classList.remove("active");document.getElementById("page2").classList.add("active");}
-function nextPage2(){document.getElementById("page2").classList.remove("active");document.getElementById("page3").classList.add("active");}
+function nextPage(){
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
+}
 
-function openLetter(){document.getElementById("envelope").classList.add("open");setTimeout(()=>{document.getElementById("letter").classList.remove("hidden"); launchFlyingHearts(10); launchSparkles(20);},1000);}
-function showMore(){const pics=document.querySelectorAll("#morePics img");document.getElementById("morePics").classList.remove("hidden");pics.forEach((img,index)=>{setTimeout(()=>{img.classList.add("show");},index*300);});launchFlyingHearts(20);launchSparkles(30);}
+function nextPage2(){
+  document.getElementById("page2").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
+}
 
-function launchFlyingHearts(count){for(let i=0;i<count;i++){let heart=document.createElement("div");heart.className="flying-heart";heart.style.left=50+Math.random()*100-50+"%";heart.style.top=50+Math.random()*20-10+"%";document.body.appendChild(heart);animateHeart(heart);}}
-function animateHeart(el){let x=Math.random()*300-150;let y=Math.random()*-300-100;el.style.transition="all 2s ease-out";setTimeout(()=>{el.style.transform=`translate(${x}px,${y}px) rotate(${Math.random()*360}deg)`;el.style.opacity=1;},10);setTimeout(()=>{el.remove();},2100);}
-function launchSparkles(count){for(let i=0;i<count;i++){let sparkle=document.createElement("div");sparkle.className="flying-glitter";sparkle.textContent=emojiSet[Math.floor(Math.random()*emojiSet.length)];sparkle.style.left=Math.random()*100+"%";sparkle.style.top=Math.random()*100+"%";sparkle.style.fontSize=12+Math.random()*12+"px";document.body.appendChild(sparkle);setTimeout(()=>{sparkle.remove();},3000);}}
-</script>
-</body>
-</html>
+function openLetter(){
+  document.getElementById("envelope").classList.add("open");
+  setTimeout(()=>{
+    document.getElementById("letter").classList.remove("hidden");
+    launchFlyingHearts(10);
+    launchSparkles(20);
+  },1000);
+}
+
+function showMore(){
+  const pics=document.querySelectorAll("#morePics img");
+  document.getElementById("morePics").classList.remove("hidden");
+  pics.forEach((img,index)=>{
+    setTimeout(()=>{img.classList.add("show");},index*300);
+  });
+  launchFlyingHearts(20);
+  launchSparkles(30);
+  }
