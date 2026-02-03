@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💋💗✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Press Start 2P',cursive;text-align:center;overflow:hidden;background:linear-gradient(135deg,#ffe6f0,#ffccd9,#ffd9e6);position:relative;height:100vh;}
+.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;}
+.active{display:flex;}
+h1{color:#b3003b;font-size:18px;}
+.glitter{color:red;text-shadow:0 0 10px #ff0033,0 0 20px maroon;font-family:'Patrick Hand',cursive;}
+button{padding:15px 25px;font-size:14px;border:none;border-radius:12px;cursor:pointer;transition:0.3s;font-family:'Patrick Hand',cursive;box-shadow:0 0 5px #ff99cc;}
+button:hover{box-shadow:0 0 15px #ff66aa;}
+#yesBtn{background:#ff3366;color:white;z-index:10;}
+#yesBtn.heartbeat{animation:heartbeat 1s infinite;}
+@keyframes heartbeat{0%{transform:scale(1);}25%{transform:scale(1.1);}50%{transform:scale(1);}75%{transform:scale(1.1);}100%{transform:scale(1);}}
+#noBtn{position:absolute;background:#666;color:white;z-index:10;}
+.panda{width:120px;margin:10px;}
+.floating-panda{position:absolute;transform-origin: bottom center;animation:floatPanda 4s ease-in-out infinite alternate,wave 1.5s ease-in-out infinite alternate;transition:transform 0.5s;}
+.floating-panda:nth-child(1){bottom:20px;left:10%;width:100px;animation-duration:4s,1.5s;}
+.floating-panda:nth-child(2){bottom:50px;left:70%;width:120px;animation-duration:5s,1.5s;}
+.floating-panda:nth-child(3){bottom:100px;left:40%;width:90px;animation-duration:3.5s,1.5s;}
+@keyframes floatPanda{0%{transform:translateY(0px) rotate(-3deg);}50%{transform:translateY(-20px) rotate(3deg);}100%{transform:translateY(0px) rotate(-3deg);}}
+@keyframes wave{0%{transform:translateY(0px) rotate(-3deg) rotateZ(-5deg);}50%{transform:translateY(-20px) rotate(3deg) rotateZ(5deg);}100%{transform:translateY(0px) rotate(-3deg) rotateZ(-5deg);}}
+.envelope-container{perspective:800px;margin-bottom:20px;}
+.envelope{width:200px;height:120px;background:#fff;border:3px solid #b3003b;position:relative;cursor:pointer;transform-style:preserve-3d;transition:transform 1s ease;}
+.envelope.open{transform:rotateX(180deg);}
+.envelope:before{content:"";position:absolute;top:-60px;left:0;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom:60px solid #b3003b;}
+.letter-text{font-family:'Patrick Hand',cursive;color:#b3003b;font-size:16px;margin:10px;}
+.hidden{display:none;}
+img.photo{width:120px;margin:10px;border-radius:12px;position:relative;opacity:0;transform:translateY(50px) rotate(0deg);transition:all 0.7s ease-out;}
+img.photo.show{opacity:1;transform:translateY(0px) rotate(360deg);}
+.flying-heart{position:absolute;width:15px;height:15px;background:#ff6699;transform:rotate(45deg);border-radius:3px;opacity:0;pointer-events:none;}
+.flying-heart:before,.flying-heart:after{content:"";position:absolute;width:15px;height:15px;background:#ff6699;border-radius:50%;}
+.flying-heart:before{top:-7px;left:0;} .flying-heart:after{top:0;left:-7px;}
+.flying-glitter{position:absolute;font-size:14px;pointer-events:none;opacity:0.9;animation:glitterMove 3s linear forwards;}
+@keyframes glitterMove{0%{transform:translateY(0px) rotate(0deg);}100%{transform:translateY(-300px) rotate(360deg);opacity:0;}}
+.fullscreen-yes{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;font-size:80px;color:white;background:#ff3366;z-index:9999;transition:0.5s;flex-direction:column;}
+</style>
+</head>
+<body>
+
+<!-- Floating Pandas -->
+<img src="https://i.imgur.com/KF6vFqT.png" class="floating-panda">
+<img src="https://i.imgur.com/KF6vFqT.png" class="floating-panda">
+<img src="https://i.imgur.com/KF6vFqT.png" class="floating-panda">
+
+<!-- Emoji Background -->
+<script>
+const emojiSet=["💋","💗","🧿","😓","🥲","😭","✨","💞","😁","❤️","😤","😩","😵‍💫","🤧","💓","🧐"];
+for(let i=0;i<30;i++){
+  let emoji=document.createElement("div");
+  emoji.textContent=emojiSet[Math.floor(Math.random()*emojiSet.length)];
+  emoji.style.position="absolute";
+  emoji.style.left=Math.random()*100+"%";
+  emoji.style.top=Math.random()*100+"%";
+  emoji.style.fontSize=12+Math.random()*16+"px";
+  emoji.style.opacity=0.7+Math.random()*0.3;
+  emoji.style.pointerEvents="none";
+  emoji.style.transition="transform 10s linear";
+  document.body.appendChild(emoji);
+  function animateEmoji(e){let x=Math.random()*300-150;let y=Math.random()*-300-100;e.style.transform=`translate(${x}px,${y}px) rotate(${Math.random()*360}deg)`;setTimeout(()=>{e.style.transform="";setTimeout(()=>animateEmoji(e),Math.random()*5000);},10000);}
+  animateEmoji(emoji);
+}
+</script>
+
+<div class="page active" id="page1">
+  <img class="panda" src="https://i.imgur.com/6qKQ8QG.png">
+  <h1>Will You Be My Valentine? 💋💗✨💞</h1>
+  <button id="yesBtn">YES 💋💗🥲💞❤️✨</button>
+  <button id="noBtn">NO 😓😤🤧😩💓🧐</button>
+</div>
+
+<div class="page" id="page2">
+  <h1 class="glitter">Thank You! I Love You 💋💗🥲❤️💞✨</h1>
+  <p class="letter-text">I have gifts for you 💋💗🥲✨💞</p>
+  <button onclick="nextPage2()">Click Here 💓💋💗</button>
+</div>
+
+<div class="page" id="page3">
+  <div class="envelope-container">
+    <div id="envelope" class="envelope" onclick="openLetter()"></div>
+  </div>
+  <div id="letter" class="hidden">
+    <h1 class="glitter">For You 💋💗🥲💞✨</h1>
+    <p class="letter-text">Why I love you 😭💗💋💞✨:</p>
+    <p class="letter-text">You make me smile every day 🥲💋💗😁❤️</p>
+    <p class="letter-text">Your laugh is my favorite sound 😓💞✨💗</p>
+    <p class="letter-text">Being with you feels like home 🏡💋💗💞</p>
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=1-2MB7yl1CDkTXupOb7HOypOCclIBaH4k">
+    <br>
+    <button onclick="showMore()">Open Second Envelope 💋💗💞</button>
+  </div>
+  <div id="morePics" class="hidden">
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=1gxQdBTBXcpRnnQqLw1xLbh3B2ysOfDPh">
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=1By7xZsv4ugqb5r-Cq8ERtg148-Imow1d">
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=14hcCETk0BK1NjapeNww3NRJXOrKBqS_T">
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=1l2eXuwWXNBm_5AoVwSaFqcMNTKAgsAPQ">
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=1KXTtSkH7E_CRfy3Cvi9EnMju33sQjdub">
+    <img class="photo" src="https://drive.google.com/uc?export=view&id=h9KYnXl9AsMGv6uCX7W0N9PmdyUZ">
+  </div>
+</div>
+
+<div id="fullscreenYes" class="fullscreen-yes hidden">YES 💋💗❤️</div>
+
+<script>
+const noBtn=document.getElementById("noBtn");
+const yesBtn=document.getElementById("yesBtn");
+const fullscreenYes=document.getElementById("fullscreenYes");
+let yesScale=1;
+
+noBtn.addEventListener("mouseover",function(){
+  noBtn.style.top=Math.random()*80+"%";
+  noBtn.style.left=Math.random()*80+"%";
+  yesScale+=0.3;
+  if(yesScale>10) yesScale=10;
+  yesBtn.style.transform=`scale(${yesScale})`;
+  if(yesScale>2) yesBtn.classList.add("heartbeat");
+});
+
+yesBtn.addEventListener("click",function(){
+  fullscreenYes.classList.remove("hidden");
+  yesBtn.style.display="none";
+  noBtn.style.display="none";
+  launchSparkles(50);
+});
+
+function nextPage(){
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
+}
+function nextPage2(){
+  document.getElementById("page2").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
+}
+
+function openLetter(){
+  document.getElementById("envelope").classList.add("open");
+  setTimeout(()=>{document.getElementById("letter").classList.remove("hidden"); launchFlyingHearts(15); launchSparkles(30);},1000);
+}
+
+function showMore(){
+  const pics=document.querySelectorAll("#morePics img");
+  document.getElementById("morePics").classList.remove("hidden");
+  pics.forEach((img,index)=>{setTimeout(()=>{img.classList.add("show");},index*300);});
+  launchFlyingHearts(30);
+  launchSparkles(50);
+}
+
+function launchFlyingHearts(count){
+  for(let i=0;i<count;i++){
+    let heart=document.createElement("div");
+    heart.className="flying-heart";
+    heart.style.left=50+Math.random()*100-50+"%";
+    heart.style.top=50+Math.random()*20-10+"%";
+    document.body.appendChild(heart);
+    animateHeart(heart);
+  }
+}
+
+function animateHeart(el){
+  let x=Math.random()*300-150;
+  let y=Math.random()*-300-100;
+  el.style.transition="all 2s ease-out";
+  setTimeout(()=>{el.style.transform=`translate(${x}px,${y}px) rotate(${Math.random()*360}deg)`;el.style.opacity=1;},10);
+  setTimeout(()=>{el.remove();},2100);
+}
+
+function launchSparkles(count){
+  for(let i=0;i<count;i++){
+    let sparkle=document.createElement("div");
+    sparkle.className="flying-glitter";
+    sparkle.textContent=emojiSet[Math.floor(Math.random()*emojiSet.length)];
+    sparkle.style.left=Math.random()*100+"%";
+    sparkle.style.top=Math.random()*100+"%";
+    sparkle.style.fontSize=12+Math.random()*14+"px";
+    document.body.appendChild(sparkle);
+    setTimeout(()=>{sparkle.remove();},3000);
+  }
+}
+</script>
+</body>
+</html>
