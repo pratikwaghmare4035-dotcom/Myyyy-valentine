@@ -104,6 +104,7 @@ for(let i=0;i<20;i++){
 <div id="fullscreenYes" class="fullscreen-yes hidden">YES 💋💗❤️</div>
 
 <script>
+</script>
 const noBtn=document.getElementById("noBtn");
 const yesBtn=document.getElementById("yesBtn");
 const fullscreenYes=document.getElementById("fullscreenYes");
@@ -122,8 +123,6 @@ yesBtn.addEventListener("click", function() {
   fullscreenYes.classList.remove("hidden");
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
-  
-  // Triggers the animation effect
   launchSparkles(30);
 
   setTimeout(() => {
@@ -161,7 +160,6 @@ function showMore() {
   launchSparkles(30);
 }
 
-// These functions define the animations your code was trying to call
 function launchSparkles(num) {
   for(let i=0; i<num; i++) {
     const s = document.createElement("div");
@@ -190,4 +188,5 @@ function launchFlyingHearts(num) {
 }
 </script>
 </body>
-</html>
+  </html>
+    
