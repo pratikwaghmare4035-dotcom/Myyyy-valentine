@@ -104,19 +104,18 @@ for(let i=0;i<20;i++){
 <div id="fullscreenYes" class="fullscreen-yes hidden">YES 💋💗❤️</div>
 
 <script>
-</script>
-const noBtn=document.getElementById("noBtn");
-const yesBtn=document.getElementById("yesBtn");
-const fullscreenYes=document.getElementById("fullscreenYes");
-let yesScale=1;
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const fullscreenYes = document.getElementById("fullscreenYes");
+let yesScale = 1;
 
-noBtn.addEventListener("mouseover",function(){
-  noBtn.style.top=Math.random()*80+"%";
-  noBtn.style.left=Math.random()*80+"%";
-  yesScale+=0.3;
-  if(yesScale>10) yesScale=10;
-  yesBtn.style.transform=`scale(${yesScale})`;
-  if(yesScale>2) yesBtn.classList.add("heartbeat");
+noBtn.addEventListener("mouseover", function() {
+  noBtn.style.top = Math.random() * 80 + "%";
+  noBtn.style.left = Math.random() * 80 + "%";
+  yesScale += 0.3;
+  if (yesScale > 10) yesScale = 10;
+  yesBtn.style.transform = `scale(${yesScale})`;
+  if (yesScale > 2) yesBtn.classList.add("heartbeat");
 });
 
 yesBtn.addEventListener("click", function() {
@@ -161,7 +160,7 @@ function showMore() {
 }
 
 function launchSparkles(num) {
-  for(let i=0; i<num; i++) {
+  for (let i = 0; i < num; i++) {
     const s = document.createElement("div");
     s.innerHTML = "✨";
     s.className = "flying-glitter";
@@ -174,7 +173,7 @@ function launchSparkles(num) {
 }
 
 function launchFlyingHearts(num) {
-  for(let i=0; i<num; i++) {
+  for (let i = 0; i < num; i++) {
     const h = document.createElement("div");
     h.className = "flying-heart";
     h.style.left = Math.random() * 100 + "vw";
@@ -188,5 +187,4 @@ function launchFlyingHearts(num) {
 }
 </script>
 </body>
-  </html>
-    
+</html>
