@@ -1,121 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine 💗</title>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-<style>
-body{
-  margin:0;
-  font-family:'Patrick Hand',cursive;
-  background:linear-gradient(135deg,#ffe6f0,#ffd6e7,#ffcce0);
-  overflow:hidden;
-  text-align:center;
-}
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-.page{
-  display:none;
-  height:100vh;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-
-.active{display:flex;}
-
-h1{color:#b3003b;}
-
-button{
-  padding:12px 25px;
-  border:none;
-  border-radius:10px;
-  font-size:18px;
-  cursor:pointer;
-}
-
-#yesBtn{background:#ff3366;color:white;}
-#noBtn{position:absolute;background:#444;color:white;}
-
-.photo{
-  width:120px;
-  margin:8px;
-  border-radius:12px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.6s;
-}
-
-.photo.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.hidden{display:none;}
-</style>
-</head>
-
-<body>
-
-<!-- PAGE 1 -->
-<div class="page active" id="page1">
-  <h1>Will You Be My Valentine? 💗</h1>
-  <button id="yesBtn">YES 💗</button>
-  <button id="noBtn">NO 😏</button>
-</div>
-
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-  <h1>I Love You 💗</h1>
-  <button onclick="nextPage()">Open Your Surprise</button>
-</div>
-
-<!-- PAGE 3 -->
-<div class="page" id="page3">
-  <h1>For You 💗</h1>
-
-  <img class="photo" src="https://drive.google.com/uc?export=view&id=1-2MB7yl1CDkTXupOb7HOypOCclIBaH4k">
-
-  <div id="morePics" class="hidden">
-    <img class="photo" src="https://drive.google.com/uc?export=view&id=1gxQdBTBXcpRnnQqLw1xLbh3B2ysOfDPh">
-    <img class="photo" src="https://drive.google.com/uc?export=view&id=1By7xZsv4ugqb5r-Cq8ERtg148-Imow1d">
-    <img class="photo" src="https://drive.google.com/uc?export=view&id=14hcCETk0BK1NjapeNww3NRJXOrKBqS_T">
-    <img class="photo" src="https://drive.google.com/uc?export=view&id=1l2eXuwWXNBm_5AoVwSaFqcMNTKAgsAPQ">
-    <img class="photo" src="https://drive.google.com/uc?export=view&id=1KXTtSkH7E_CRfy3Cvi9EnMju33sQjdub">
-    <img class="photo" src="https://drive.google.com/uc?export=view&id=h9KYnXl9AsMGv6uCX7W0N9PmdyUZ">
-  </div>
-
-  <button onclick="showMore()">Show Memories 💗</button>
-</div>
-
-<script>
-const noBtn=document.getElementById("noBtn");
-const yesBtn=document.getElementById("yesBtn");
-
-noBtn.addEventListener("mouseover",()=>{
-  noBtn.style.top=Math.random()*80+"%";
-  noBtn.style.left=Math.random()*80+"%";
-});
-
-yesBtn.addEventListener("click",()=>{
-  document.getElementById("page1").classList.remove("active");
-  document.getElementById("page2").classList.add("active");
-});
-
-function nextPage(){
-  document.getElementById("page2").classList.remove("active");
-  document.getElementById("page3").classList.add("active");
-}
-
-function showMore(){
-  document.getElementById("morePics").classList.remove("hidden");
-  document.querySelectorAll(".photo").forEach((img,i)=>{
-    setTimeout(()=>img.classList.add("show"),i*300);
-  });
-}
-</script>
-
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
