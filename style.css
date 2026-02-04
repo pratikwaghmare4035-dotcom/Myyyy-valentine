@@ -1,0 +1,64 @@
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family:"Pixelify Sans",sans-serif;
+    background:linear-gradient(180deg,#ffe6f2,#ffd6eb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hearts::before{
+    content:"💗 💖 💞 💘 💓 💝";
+    position:fixed;
+    font-size:40px;
+    animation: float 20s linear infinite;
+    opacity:0.15;
+    white-space:nowrap;
+}
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-100vh);}
+}
+
+#envelope-container{text-align:center;cursor:pointer;}
+#envelope{width:200px;animation:pulse 1.5s infinite;}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+#letter-container{
+    display:none;
+    position:fixed;
+    inset:0;
+    justify-content:center;
+    align-items:center;
+}
+
+.letter-window{
+    width:90vw;
+    max-width:800px;
+    padding:40px;
+    text-align:center;
+    background:url("window.png") center/contain no-repeat;
+    transform:scale(0.5);
+    opacity:0;
+    transition:0.6s;
+}
+
+.letter-window.open{
+    transform:scale(1);
+    opacity:1;
+}
+
+.cat{width:220px;margin:20px 0;}
+
+.buttons{position:relative;height:120px;}
+.btn{width:120px;position:absolute;cursor:pointer;transition:0.3s;}
+.yes-btn{left:20%;}
+.no-btn{right:20%;}
+
+.final-text{display:none;font-size:22px;margin-top:20px;}
